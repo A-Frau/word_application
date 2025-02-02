@@ -1,0 +1,14 @@
+package org.learning.word_app.entity;
+
+public enum Topic {
+    GREETINGS_BASIC_EXPRESSIONS,
+    NUMBERS_COLORS,
+    FAMILY_PEOPLE,
+    DAILY_ACTIVITIES,
+    FOOD_DRINK,
+    SHOPPING_MONEY,
+    TIME_DATES,
+    PLACES_DIRECTIONS,
+    WEATHER_SEASONS,
+    CLOTHING
+}
