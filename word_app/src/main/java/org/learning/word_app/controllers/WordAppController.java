@@ -1,15 +1,21 @@
 package org.learning.word_app.controllers;
 
 import org.learning.word_app.entity.FrenchWord;
+import org.learning.word_app.entity.Gender;
+import org.learning.word_app.entity.Topic;
+import org.learning.word_app.entity.Type;
 import org.learning.word_app.service.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:5180")
 public class WordAppController {
 
     private final WordService wordService;
@@ -24,7 +30,7 @@ public class WordAppController {
         return wordService.save(word);
     }
 
-    @GetMapping("/fr_words")
+    @GetMapping("/fr_words/all_words")
     public List<FrenchWord> getAllWords() {
         return wordService.findAll();
     }
@@ -47,6 +53,15 @@ public class WordAppController {
     @GetMapping("/fr_words/similar_words")
     public List<FrenchWord> getSimilarWords(@RequestParam String word) {
         return wordService.findSimilarWords(word);
+    }
+
+    @GetMapping("/enums/all")
+    public Map<String, Object> getAllEnums() {
+        Map<String, Object> enums = new HashMap<>();
+        enums.put("types", Type.values());
+        enums.put("genders", Gender.values());
+        enums.put("topics", Topic.values());
+        return enums; // Returns a JSON object with all enums
     }
 
 }

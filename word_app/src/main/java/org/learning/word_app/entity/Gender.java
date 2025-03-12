@@ -1,6 +1,6 @@
 package org.learning.word_app.entity;
 
 public enum Gender {
-    MASCULINE, FEMININE, NEUTER, NONE
+    MASCULINE, FEMININE, NEUTRAL , NONE
 }
 

@@ -1,6 +1,6 @@
 package org.learning.word_app.entity;
 
-public enum WordType {
+public enum Type {
     NOUN,
     VERB,
     ADJECTIVE,

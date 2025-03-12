@@ -22,16 +22,16 @@ public class FrenchWord {
     @Column(name = "english")
     private String english;
 
+    @Column(name = "gender", nullable = true)
     @Enumerated(EnumType.STRING)
-    @Column(name = "gender")
     private Gender gender;
 
+    @Column(name = "type", nullable = true)
     @Enumerated(EnumType.STRING)
-    @Column(name = "word_type")
-    private WordType wordType;
+    private Type type;
 
+    @Column(name = "topic", nullable = true)
     @Enumerated(EnumType.STRING)
-    @Column(name = "topic")
     private Topic topic;
 
     @Column(name = "notes")
@@ -40,12 +40,12 @@ public class FrenchWord {
     public FrenchWord() {
     }
 
-    public FrenchWord(String french, String pronunciation, String english, Gender gender, WordType wordType, Topic topic, String notes) {
+    public FrenchWord(String french, String pronunciation, String english, Gender gender, Type type, Topic topic, String notes) {
         this.french = french;
         this.pronunciation = pronunciation;
         this.english = english;
         this.gender = gender;
-        this.wordType = wordType;
+        this.type = type;
         this.topic = topic;
         this.notes = notes;
     }
@@ -91,12 +91,12 @@ public class FrenchWord {
         this.gender = gender;
     }
 
-    public WordType getWordType() {
-        return wordType;
+    public Type getType() {
+        return type;
     }
 
-    public void setWordType(WordType wordType) {
-        this.wordType = wordType;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public Topic getTopic() {
@@ -105,6 +105,14 @@ public class FrenchWord {
 
     public void setTopic(Topic topic) {
         this.topic = topic;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     @Override
@@ -126,7 +134,7 @@ public class FrenchWord {
                 ", pronunciation='" + pronunciation + '\'' +
                 ", english='" + english + '\'' +
                 ", gender=" + gender +
-                ", wordType=" + wordType +
+                ", type=" + type +
                 ", topic=" + topic +
                 ", notes='" + notes + '\'' +
                 '}';

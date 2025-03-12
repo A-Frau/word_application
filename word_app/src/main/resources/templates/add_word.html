@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=360, height=780, initial-scale=1.0">
+    <title>French Vocabulary Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            width: 300px;
+            height: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #ffd1dc;
+            box-shadow: 2px 2px 5px lightpink;
+            border-radius: 8px;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+        }
+        .form-container input,
+        .form-container select {
+            background-color: white;
+            width: 90%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #333333;
+        }
+
+        .form-container button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: hotpink;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: deeppink;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Vocabulary</h2>
+        <form>
+            <label for="french">French</label>
+            <input type="text" id="french" name="french" placeholder="Enter French word">
+
+            <label for="pronounce">Pronunciation</label>
+            <input type="text" id="pronounce" name="pronounce" placeholder="Enter pronunciation">
+
+            <label for="english">English</label>
+            <input type="text" id="english" name="english" placeholder="Enter English meaning">
+
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option value="noun">Noun</option>
+                <option value="verb">Verb</option>
+                <option value="adjective">Adjective</option>
+                <option value="adverb">Adverb</option>
+            </select>
+
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic">
+                <option value="food">Food</option>
+                <option value="travel">Travel</option>
+                <option value="education">Education</option>
+                <option value="business">Business</option>
+            </select>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="masculine">Masculine</option>
+                <option value="feminine">Feminine</option>
+                <option value="none">N/A</option>
+            </select>
+
+            <label for="note">French</label>
+            <input type="text" id="note" name="note" placeholder="Additional note...">
+
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <script>
+        // Add your JavaScript code here
+    </script>
+</body>
+</html>

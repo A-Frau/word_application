@@ -54,9 +54,12 @@ public class WordServiceAction implements WordService {
 
     @Override
     public List<FrenchWord> findSimilarWords(String word) {
-        List<FrenchWord> similarWords = frenchWordsRepository.findSimilarWords(word);
+        String lowerCaseWord = word.toLowerCase();
+        List<FrenchWord> similarWords = frenchWordsRepository.findSimilarWords(lowerCaseWord);
         return similarWords.stream()
-                .sorted(Comparator.comparingInt(f -> calculateLevenshteinDistance(word, f.getFrench())))
+                .sorted(Comparator.comparingInt(f -> 
+                    calculateLevenshteinDistance(lowerCaseWord, f.getFrench().toLowerCase())
+                    ))
                 .limit(10)
                 .collect(Collectors.toList());
     }
