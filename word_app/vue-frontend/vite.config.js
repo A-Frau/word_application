@@ -15,14 +15,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  server: {
-  proxy: {
-    '/translate': {
-      target: 'https://api-free.deepl.com',
-      changeOrigin: true,
-      secure: true,
-      rewrite: (path) => path.replace(/^\/translate/, '/v2')
-    }
-  }
-}
 })

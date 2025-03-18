@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-vue-next';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-
+const apiKey = import.meta.env.VITE_DEEPL_API_KEY;
 const goBack = () => {
   router.go(-1);
 };
@@ -28,27 +28,25 @@ const translateToEnglish = async () => {
     alert("Please enter a French word first.");
     return;
   }
-
   try {
-    const response = await axios.post('/translate/translate', {
-      text: [formData.value.french],
-      target_lang: "EN"
-    }, {
-      headers: { Authorization: `DeepL-Auth-Key ${import.meta.env.VITE_DEEPL_API_KEY}` }
+    const response = await axios.post('https://api-free.deepl.com/v2/translate', null, {
+      params: {
+        auth_key: apiKey,
+        text: formData.value.french,
+        source_lang: 'FR',
+        target_lang: 'EN'
+      }
     });
     suggestedTranslation.value = response.data.translations[0].text;
   } catch (error) {
     console.error("Error translating word:", error);
-     if (error.response) {
-      alert(`Failed to fetch translation: ${error.response.status} - ${error.response.data.message}`);
-    } else {
-      alert("Failed to fetch translation. Please check your network or API key.");
-    }
+    alert("Failed to fetch translation. Please check your network or API key.");
   }
 };
 
 const useSuggestedTranslation = () => {
   formData.value.english = suggestedTranslation.value;
+  suggestedTranslation.value = "";
 };
 
 const types = ref([]);
